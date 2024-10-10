@@ -1,10 +1,11 @@
 // const { Car } = require("../models");
 
-const path = require("path");
-
 function showAllCars(req, res) {
     try {
-        res.sendFile(path.join(__dirname, "../public/cars.html"));
+        // Rendering file with template engines (ejs)
+        res.render("pages/cars", {
+            contentTitle: "List Cars",
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -18,7 +19,10 @@ function showAllCars(req, res) {
 
 function showForm(req, res) {
     try {
-        res.sendFile(path.join(__dirname, "../public/createCar.html"));
+        // Rendering file with template engines (ejs)
+        res.render("pages/createCar", {
+            contentTitle: "Add New Car",
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -33,6 +37,7 @@ function showForm(req, res) {
 function createCar(req, res) {
     try {
         console.log(req.body);
+        // Redirect to {baseUrl}/cars
         res.status(200).redirect("/cars");
     } catch (error) {
         console.error(error);
