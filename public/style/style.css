@@ -1,0 +1,57 @@
+#brand-logo {
+    background: #cfd4ed;
+    width: 100px;
+    height: 34px;
+}
+
+#sidebar-button {
+    max-width: 70px;
+    background-color: #0d28a6;
+    min-height: 100vh;
+}
+
+/* #main {
+    background: #f4f5f7;
+} */
+
+#sidebar-label {
+    background-color: white;
+    color: #8a8a8a;
+    max-width: 200px;
+    min-height: 100vh;
+}
+
+.content {
+    padding: 10px 20px;
+    width: 100%;
+    min-height: 100vh;
+    background: #f4f5f7;
+}
+
+.btnActive {
+    background-color: #cfd4ed;
+    width: 100%;
+}
+
+.btnActive:hover {
+    border: 2px solid #cfd4ed;
+}
+
+.btn-primary {
+    background-color: #0d28a6;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d28a6;
+}
+
+@media only screen and (max-width: 576px) {
+    #sidebar-label {
+        visibility: hidden;
+    }
+}
+
+/* create car */
+#button-group {
+    margin-bottom: 120px;
+}
