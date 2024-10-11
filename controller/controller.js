@@ -1,4 +1,4 @@
-// const { Car } = require("../models");
+const { Car } = require("../models");
 
 function showAllCars(req, res) {
     try {
@@ -54,9 +54,22 @@ function createForm(req, res) {
     }
 }
 
-function createCarData(req, res) {
+async function createCarData(req, res) {
     try {
-        console.log(req.body);
+        req.body.createdAt = new Date().toUTCString();
+        req.body.updatedAt = new Date().toUTCString();
+
+        const { carName, rentPerDay, carSize, carImage, createdAt, updatedAt } = req.body;
+
+        await Car.create({
+            carName,
+            rentPerDay,
+            carSize,
+            carImage,
+            createdAt,
+            updatedAt,
+        });
+
         // Redirect to {baseUrl}/cars
         res.status(200).redirect("/cars");
     } catch (error) {
