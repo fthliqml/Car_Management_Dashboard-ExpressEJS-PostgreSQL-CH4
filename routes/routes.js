@@ -4,7 +4,10 @@ const controller = require("../controller/controller.js");
 
 router.get("/cars", controller.showAllCars);
 
-router.get("/create-car", controller.showForm);
-router.post("/create-car", controller.createCar);
+router.get("/create-car", controller.createForm);
+router.post("/create-car", controller.createCarData);
+
+router.get("/update-car", controller.updateForm);
+router.patch("/update-car", controller.updateCarData);
 
 module.exports = router;

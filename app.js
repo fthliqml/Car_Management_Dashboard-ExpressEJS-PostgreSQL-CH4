@@ -1,4 +1,5 @@
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 const route = require("./routes/routes");
 
@@ -11,6 +12,8 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 // Custom "views" folder path
 app.set("views", path.join(__dirname, "/public"));
+// Using ejs layouting
+app.use(expressLayouts);
 // Get request object (in this case, form in createCar)
 app.use(
     express.urlencoded({

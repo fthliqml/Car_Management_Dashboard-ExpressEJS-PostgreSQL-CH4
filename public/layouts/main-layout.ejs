@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Head -->
+        <%- include('../partials/head') %>
+    </head>
+    <body>
+        <div class="d-flex">
+            <!-- Sidebar -->
+            <%- include('../partials/sidebar-button') %>
+
+            <div class="container-fluid px-0">
+                <!-- Navigation -->
+                <%- include('../partials/nav') %>
+
+                <div class="container-fluid d-flex px-0">
+                    <!-- Sidebar Label -->
+                    <%- include('../partials/sidebar-label') %>
+
+                    <!-- Pages -->
+                    <div class="content"><%- body %></div>
+                    <!-- End of Pages -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <%- include('../partials/footer') %>
+    </body>
+</html>

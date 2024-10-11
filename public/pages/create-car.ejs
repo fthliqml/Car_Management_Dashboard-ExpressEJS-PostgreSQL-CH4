@@ -1,0 +1,77 @@
+<div class="d-flex flex-column gap-3 h-100">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item fw-bold">Cars</li>
+            <li class="breadcrumb-item fw-bold" aria-current="page">List Cars</li>
+            <li class="breadcrumb-item" aria-current="page">Add New Car</li>
+        </ol>
+    </nav>
+    <h4 class="fw-bold"><%= contentTitle %></h4>
+    <div class="bg-white p-4 w-100">
+        <form action="/create-car" method="post" id="createCarForm">
+            <div class="d-flex flex-column gap-3">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputNama" class="col-form-label fw-medium">Nama</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input
+                            type="text"
+                            id="inputNama"
+                            name="Nama"
+                            class="form-control"
+                            placeholder="Avanza"
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputSewa" class="col-form-label fw-medium"
+                            >Sewa Per hari</label
+                        >
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input
+                            type="text"
+                            id="inputSewa"
+                            name="Sewa"
+                            class="form-control"
+                            placeholder="Rp 0,-"
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputUkuran" class="col-form-label fw-medium">Ukuran</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <select name="Ukuran" class="form-select" id="inputUkuran">
+                            <option selected value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputFoto" class="col-form-label fw-medium">Foto</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input type="file" id="inputFoto" name="File" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Button Group -->
+    <div id="button-group" class="mt-auto">
+        <a href="cars" class="btn btn-outline-primary">Cancel</a>
+        <input
+            type="submit"
+            value="Save"
+            id="submitForm"
+            form="createCarForm"
+            class="btn btn-primary"
+        />
+    </div>
+</div>

@@ -5,11 +5,13 @@ function showAllCars(req, res) {
         // Rendering file with template engines (ejs)
         res.render("pages/cars", {
             contentTitle: "List Cars",
+            scriptFile: "cars.js",
+            layout: "layouts/main-layout",
         });
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            status: "500",
+            status: "Failed",
             message: "Failed to get cars data",
             isSuccess: false,
             error: error.message,
@@ -17,24 +19,7 @@ function showAllCars(req, res) {
     }
 }
 
-function showForm(req, res) {
-    try {
-        // Rendering file with template engines (ejs)
-        res.render("pages/createCar", {
-            contentTitle: "Add New Car",
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            status: "500",
-            message: "Failed to show form",
-            isSuccess: false,
-            error: error.message,
-        });
-    }
-}
-
-function createCar(req, res) {
+function deleteCar(req, res) {
     try {
         console.log(req.body);
         // Redirect to {baseUrl}/cars
@@ -42,8 +27,78 @@ function createCar(req, res) {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            status: "500",
+            status: "Failed",
+            message: "Failed to delete car data",
+            isSuccess: false,
+            error: error.message,
+        });
+    }
+}
+
+function createForm(req, res) {
+    try {
+        // Rendering file with template engines (ejs)
+        res.render("pages/create-car", {
+            contentTitle: "Add New Car",
+            scriptFile: "create-car.js",
+            layout: "layouts/main-layout",
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: "Failed",
+            message: "Failed to show form",
+            isSuccess: false,
+            error: error.message,
+        });
+    }
+}
+
+function createCarData(req, res) {
+    try {
+        console.log(req.body);
+        // Redirect to {baseUrl}/cars
+        res.status(200).redirect("/cars");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: "Failed",
             message: "Failed to create car data",
+            isSuccess: false,
+            error: error.message,
+        });
+    }
+}
+
+function updateForm(req, res) {
+    try {
+        // Rendering file with template engines (ejs)
+        res.render("pages/update-car", {
+            contentTitle: "Update Car Information",
+            scriptFile: "update-car.js",
+            layout: "layouts/main-layout",
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: "Failed",
+            message: "Failed to show form",
+            isSuccess: false,
+            error: error.message,
+        });
+    }
+}
+
+function updateCarData(req, res) {
+    try {
+        console.log(req.body);
+        // Redirect to {baseUrl}/cars
+        res.status(200).redirect("/cars");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: "Failed",
+            message: "Failed to update car data",
             isSuccess: false,
             error: error.message,
         });
@@ -52,6 +107,9 @@ function createCar(req, res) {
 
 module.exports = {
     showAllCars,
-    showForm,
-    createCar,
+    createForm,
+    createCarData,
+    updateForm,
+    updateCarData,
+    deleteCar,
 };
