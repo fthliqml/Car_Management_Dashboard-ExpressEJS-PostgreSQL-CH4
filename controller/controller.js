@@ -56,19 +56,17 @@ function createForm(req, res) {
 
 async function createCarData(req, res) {
     try {
-        const newCar = req.body;
-        console.log(newCar);
-
         const { carName, rentPerDay, carSize, carImage, createdAt, updatedAt } = req.body;
 
-        // await Car.create({
-        //     carName,
-        //     rentPerDay,
-        //     carSize,
-        //     carImage,
-        //     createdAt,
-        //     updatedAt,
-        // });
+        // Inser car data into database
+        await Car.create({
+            carName,
+            rentPerDay,
+            carSize,
+            carImage,
+            createdAt,
+            updatedAt,
+        });
 
         // Redirect to {baseUrl}/cars
         res.status(200).redirect("/cars");

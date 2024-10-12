@@ -55,3 +55,13 @@
 #button-group {
     margin-bottom: 120px;
 }
+
+/* Animation */
+.fade-out {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.fade-out.hidden {
+    opacity: 0;
+}
