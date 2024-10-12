@@ -60,14 +60,14 @@ function createForm(req, res) {
 
 async function createCarData(req, res) {
     try {
-        const { carName, rentPerDay, carSize, carImage, createdAt, updatedAt } = req.body;
+        const { name, rentPerDay, size, image, createdAt, updatedAt } = req.body;
 
         // Inser car data into database
         await Car.create({
-            carName,
+            name,
             rentPerDay,
-            carSize,
-            carImage,
+            size,
+            image,
             createdAt,
             updatedAt,
         });

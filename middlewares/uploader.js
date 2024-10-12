@@ -15,7 +15,7 @@ const serverUpload = async (req, res, next) => {
 
         if (uploadedImage) {
             // Create object carImage in req.body
-            req.body.carImage = uploadedImage.url;
+            req.body.image = uploadedImage.url;
             next();
 
             /*

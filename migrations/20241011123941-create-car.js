@@ -9,16 +9,16 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            carName: {
+            name: {
                 type: Sequelize.STRING,
             },
             rentPerDay: {
                 type: Sequelize.INTEGER,
             },
-            carSize: {
+            size: {
                 type: Sequelize.STRING,
             },
-            carImage: {
+            image: {
                 type: Sequelize.TEXT,
             },
             createdAt: {

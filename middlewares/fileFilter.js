@@ -1,5 +1,4 @@
 const multer = require("multer");
-const path = require("path");
 
 const fileFilter = (req, file, cb) => {
     const allowedMimeTypes = ["image/png", "image/jpeg"];

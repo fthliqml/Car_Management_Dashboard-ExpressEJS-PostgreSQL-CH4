@@ -13,7 +13,7 @@ router.get("/create-car", controller.createForm);
 // Handling create car data
 router.post(
     "/create-car",
-    fileFilter.single("carImage"),
+    fileFilter.single("image"),
     serverUpload,
     createCarTime,
     controller.createCarData
