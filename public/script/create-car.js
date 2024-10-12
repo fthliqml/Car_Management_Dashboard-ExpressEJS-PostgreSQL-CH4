@@ -1,4 +1,5 @@
-const alertPlaceholder = document.getElementById("live-alert");
+const liveAlert = document.getElementById("live-alert");
+const inputImage = document.getElementById("inputImage");
 
 // Create dynamic alert element
 const appendAlert = (message, type) => {
@@ -11,7 +12,7 @@ const appendAlert = (message, type) => {
         "</div>",
     ].join("");
 
-    alertPlaceholder.append(wrapper);
+    liveAlert.append(wrapper);
 
     setTimeout(() => {
         wrapper.classList.add("hidden");
@@ -22,8 +23,6 @@ const appendAlert = (message, type) => {
         }, 1000);
     }, 2000);
 };
-
-const inputImage = document.getElementById("inputImage");
 
 // Add event when user sending file
 inputImage.addEventListener("change", function (event) {
