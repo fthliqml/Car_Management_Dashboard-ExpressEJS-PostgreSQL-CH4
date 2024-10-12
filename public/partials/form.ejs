@@ -1,0 +1,86 @@
+<div class="d-flex flex-column gap-3 h-100">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item fw-bold">Cars</li>
+            <li class="breadcrumb-item fw-bold" aria-current="page">List Cars</li>
+            <li class="breadcrumb-item" aria-current="page">Add New Car</li>
+        </ol>
+    </nav>
+    <h4 class="fw-bold"><%= contentTitle %></h4>
+    <div class="bg-white p-4 w-100">
+        <form enctype="multipart/form-data" action="/create-car" method="post" id="createCarForm">
+            <div class="d-flex flex-column gap-3">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputName" class="col-form-label fw-medium">Nama</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input
+                            type="text"
+                            id="inputName"
+                            name="carName"
+                            class="form-control"
+                            placeholder="Avanza"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputRent" class="col-form-label fw-medium"
+                            >Sewa Per hari</label
+                        >
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input
+                            type="text"
+                            id="inputRent"
+                            name="rentPerDay"
+                            class="form-control"
+                            placeholder="Rp 0,-"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputSize" class="col-form-label fw-medium">Ukuran</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <select name="carSize" class="form-select" id="inputSize">
+                            <option selected value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-2">
+                        <label for="inputImage" class="col-form-label fw-medium">Foto</label>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input
+                            type="file"
+                            id="inputImage"
+                            name="carImage"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="live-alert"></div>
+    <!-- Button Group -->
+    <div id="button-group" class="mt-auto">
+        <a href="cars" class="btn btn-outline-primary">Cancel</a>
+        <input
+            type="submit"
+            value="Save"
+            id="submitForm"
+            form="createCarForm"
+            class="btn btn-primary"
+        />
+    </div>
+</div>

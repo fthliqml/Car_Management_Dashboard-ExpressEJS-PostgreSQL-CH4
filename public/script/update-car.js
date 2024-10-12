@@ -1,4 +1,6 @@
 const alertPlaceholder = document.getElementById("live-alert");
+
+// Create dynamic alert element
 const appendAlert = (message, type) => {
     const wrapper = document.createElement("div");
     wrapper.classList.add("fade-out");
@@ -14,7 +16,7 @@ const appendAlert = (message, type) => {
     setTimeout(() => {
         wrapper.classList.add("hidden");
 
-        // Tunggu sampai animasi selesai (0.5s), lalu hapus elemen
+        // Wait animation to end (1s), then delete alert element
         setTimeout(() => {
             wrapper.remove();
         }, 1000);
@@ -23,15 +25,19 @@ const appendAlert = (message, type) => {
 
 const inputImage = document.getElementById("inputImage");
 
+// Add event when user sending file
 inputImage.addEventListener("change", function (event) {
     const allowedExt = ["png", "jpg", "jpeg"];
     const filePath = this.value.split(".");
     const ext = filePath[filePath.length - 1].toLowerCase();
+
+    // if ext of file are in array
     if (allowedExt.includes(ext)) {
         return;
     } else {
         appendAlert("Jenis file tidak didukung !", "danger");
         this.value = "";
+        // reset event
         event.preventDefault();
     }
 });
