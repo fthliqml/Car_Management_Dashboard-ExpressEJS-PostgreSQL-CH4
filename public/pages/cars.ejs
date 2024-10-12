@@ -16,15 +16,22 @@
         <button class="btn btn-outline-primary">Large</button>
     </div>
     <div class="row gy-4 justify-content-center justify-content-lg-start">
+        <!-- Card -->
+        <% carsData.forEach(car => { %>
         <div class="col-12 col-lg-6 col-xl-4">
-            <div class="card row shadow-sm pt-5 mx-auto">
+            <div class="card row shadow-sm pt-4 mx-auto">
                 <div class="col">
-                    <img src="../assets/car.png" class="img-fluid" alt="car" />
+                    <img
+                        src="<%= car.carImage %>"
+                        class="card-img-top object-fit-cover"
+                        alt="car"
+                        height="300px"
+                    />
                 </div>
                 <div class="card-body col">
-                    <p>Nama/Tipe Mobil</p>
-                    <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
-                    <p class="card-text fw-light">Updated at 4 apr 2022, 09.00</p>
+                    <p><%= car.carName %></p>
+                    <h5 class="card-title fw-bold">Rp <%= car.rentPerDay %> / hari</h5>
+                    <p class="card-text fw-light">Updated at <%= car.updatedAt %></p>
                     <div class="d-flex justify-content-center gap-5">
                         <a href="#" class="btn btn-outline-danger w-50">Delete</a>
                         <a href="update-car" class="btn btn-success w-50">Edit</a>
@@ -32,37 +39,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6 col-xl-4">
-            <div class="card row shadow-sm pt-5 mx-auto">
-                <div class="col">
-                    <img src="../assets/car.png" class="img-fluid" alt="car" />
-                </div>
-                <div class="card-body col">
-                    <p>Nama/Tipe Mobil</p>
-                    <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
-                    <p class="card-text fw-light">Updated at 4 apr 2022, 09.00</p>
-                    <div class="d-flex justify-content-center gap-5">
-                        <a href="#" class="btn btn-outline-danger w-50">Delete</a>
-                        <a href="#" class="btn btn-success w-50">Edit</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 col-xl-4">
-            <div class="card row shadow-sm pt-5 mx-auto">
-                <div class="col">
-                    <img src="../assets/car.png" class="img-fluid" alt="car" />
-                </div>
-                <div class="card-body col">
-                    <p>Nama/Tipe Mobil</p>
-                    <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
-                    <p class="card-text fw-light">Updated at 4 apr 2022, 09.00</p>
-                    <div class="d-flex justify-content-center gap-5">
-                        <a href="#" class="btn btn-outline-danger w-50">Delete</a>
-                        <a href="#" class="btn btn-success w-50">Edit</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </div>

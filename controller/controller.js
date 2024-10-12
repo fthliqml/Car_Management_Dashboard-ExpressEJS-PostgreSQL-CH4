@@ -1,12 +1,16 @@
 const { Car } = require("../models");
 
-function showAllCars(req, res) {
+async function showAllCars(req, res) {
     try {
+        // Get all cars data in array from database
+        const carsData = await Car.findAll();
+
         // Rendering file with template engines (ejs)
         res.render("pages/cars", {
             contentTitle: "List Cars",
             scriptFile: "cars.js",
             layout: "layouts/main-layout",
+            carsData,
         });
     } catch (error) {
         console.error(error);
