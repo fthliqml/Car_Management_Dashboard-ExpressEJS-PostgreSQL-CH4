@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 // Routing
-app.use(route);
+app.use("/dashboard", route);
 
 // Running server
 app.listen(port, () => {

@@ -6,9 +6,9 @@ async function showAllCars(req, res) {
         const carsData = await Car.findAll();
 
         // Rendering file with template engines (ejs)
-        res.render("pages/cars", {
+        res.render("pages/dashboard", {
             contentTitle: "List Cars",
-            scriptFile: "cars.js",
+            scriptFile: "dashboard.js",
             layout: "layouts/main-layout",
             carsData,
         });
@@ -26,8 +26,8 @@ async function showAllCars(req, res) {
 function deleteCar(req, res) {
     try {
         console.log(req.body);
-        // Redirect to {baseUrl}/cars
-        res.status(200).redirect("/cars");
+        // Redirect to {baseUrl}/dashboard
+        res.status(200).redirect("/dashboard");
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -72,8 +72,8 @@ async function createCarData(req, res) {
             updatedAt,
         });
 
-        // Redirect to {baseUrl}/cars
-        res.status(200).redirect("/cars");
+        // Redirect to {baseUrl}/dashboard
+        res.status(200).redirect("/dashboard");
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -107,8 +107,8 @@ function updateForm(req, res) {
 function updateCarData(req, res) {
     try {
         console.log(req.body);
-        // Redirect to {baseUrl}/cars
-        res.status(200).redirect("/cars");
+        // Redirect to {baseUrl}/dashboard
+        res.status(200).redirect("/dashboard");
     } catch (error) {
         console.error(error);
         res.status(500).json({

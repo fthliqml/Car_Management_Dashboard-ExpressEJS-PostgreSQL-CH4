@@ -5,9 +5,12 @@ const { createCarTime, updateCarTime } = require("../middlewares/timestamps.js")
 const fileFilter = require("../middlewares/fileFilter.js");
 const serverUpload = require("../middlewares/uploader");
 
-router.get("/cars", controller.showAllCars);
+// Show dashboard
+router.get("/", controller.showAllCars);
 
+// Show pages create car form
 router.get("/create-car", controller.createForm);
+// Handling create car data
 router.post(
     "/create-car",
     fileFilter.single("carImage"),
@@ -16,7 +19,9 @@ router.post(
     controller.createCarData
 );
 
+// Show pages update car form
 router.get("/update-car", controller.updateForm);
+// Handling update car data
 router.patch("/update-car", updateCarTime, controller.updateCarData);
 
 module.exports = router;

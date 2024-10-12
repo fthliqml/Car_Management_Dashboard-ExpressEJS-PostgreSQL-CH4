@@ -15,7 +15,7 @@
         <button class="btn btn-outline-primary">Medium</button>
         <button class="btn btn-outline-primary">Large</button>
     </div>
-    <div class="row gy-4 justify-content-center justify-content-lg-start">
+    <div class="row gy-4 justify-content-center">
         <!-- Card -->
         <% carsData.forEach(car => { %>
         <div class="col-12 col-lg-6 col-xl-4">
@@ -31,14 +31,14 @@
                 <div class="card-body col">
                     <p><%= car.carName %></p>
                     <h5 class="card-title fw-bold">
-                        Rp. <%= car.rentPerDay.toLocaleString('id-ID') %> / hari
+                        Rp. <%= car.rentPerDay.toLocaleString('id-ID') %> / day
                     </h5>
                     <p class="card-text fw-light">
                         Updated at <%= car.updatedAt.toLocaleString('id-ID') %>
                     </p>
                     <div class="d-flex justify-content-center gap-5">
                         <a href="#" class="btn btn-outline-danger w-50">Delete</a>
-                        <a href="update-car" class="btn btn-success w-50">Edit</a>
+                        <a href="dashboard/update-car" class="btn btn-success w-50">Edit</a>
                     </div>
                 </div>
             </div>
