@@ -1,8 +1,11 @@
 const imagekit = require("../lib/imagekit");
 
 const serverUpload = async (req, res, next) => {
+    const file = req.file;
+    // If no file uploaded
+    if (!file) return next();
+
     try {
-        const file = req.file;
         const splitNameFile = file.originalname.split(".");
         const ext = splitNameFile[splitNameFile.length - 1];
         const fileName = `${file.fieldname}-${splitNameFile[0]}.${ext}`;

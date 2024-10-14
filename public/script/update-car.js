@@ -41,3 +41,28 @@ inputImage.addEventListener("change", function (event) {
         event.preventDefault();
     }
 });
+
+// Handling button
+
+const inputName = document.getElementById("inputName");
+const inputRent = document.getElementById("inputRent");
+const submitForm = document.getElementById("submitForm");
+
+submitForm.disabled = true;
+
+const currValue = {
+    name: inputName.value,
+    rent: inputRent.value,
+};
+
+inputName.addEventListener("input", () => {
+    inputName.value == currValue.name
+        ? (submitForm.disabled = true)
+        : (submitForm.disabled = false);
+});
+
+inputName.addEventListener("input", () => {
+    inputRent.value == currValue.rent
+        ? (submitForm.disabled = true)
+        : (submitForm.disabled = false);
+});

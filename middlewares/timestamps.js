@@ -8,10 +8,4 @@ function createCarTime(req, res, next) {
     next();
 }
 
-function updateCarTime(req, res, next) {
-    req.body.updatedAt = date;
-
-    next();
-}
-
-module.exports = { createCarTime, updateCarTime };
+module.exports = createCarTime;
