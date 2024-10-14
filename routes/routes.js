@@ -7,21 +7,15 @@ const serverUpload = require("../middlewares/uploader");
 
 // Show dashboard
 router.get("/", controller.showAllCars);
+// Handling update car data
+router.patch("/", updateCarTime, controller.updateCarData);
+// Handling create car data
+router.post("/", fileFilter.single("image"), serverUpload, createCarTime, controller.createCarData);
 
 // Show pages create car form
-router.get("/create-car", controller.createForm);
-// Handling create car data
-router.post(
-    "/create-car",
-    fileFilter.single("image"),
-    serverUpload,
-    createCarTime,
-    controller.createCarData
-);
+router.get("/add", controller.createForm);
 
 // Show pages update car form
-router.get("/update-car", controller.updateForm);
-// Handling update car data
-router.patch("/update-car", updateCarTime, controller.updateCarData);
+router.get("/:id/edit", controller.updateForm);
 
 module.exports = router;

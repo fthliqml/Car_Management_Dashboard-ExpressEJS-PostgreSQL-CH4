@@ -1,9 +1,10 @@
 const session = require("express-session");
+require("dotenv").config();
 
 const sessionMiddleware = session({
-    secret: "your-secret", // Ganti dengan kunci rahasia yang aman
-    resave: false, // Jangan simpan sesi yang tidak berubah
-    saveUninitialized: true, // Simpan sesi baru meskipun tidak ada data
+    secret: process.env.SESSION_SECRET,
+    resave: false, // Dont save session that doesnt change
+    saveUninitialized: true, // Save session even there is no data
 });
 
 module.exports = sessionMiddleware;

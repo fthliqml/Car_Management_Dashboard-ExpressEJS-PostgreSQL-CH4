@@ -32,7 +32,7 @@ function deleteCar(req, res) {
     try {
         console.log(req.body);
         // Redirect to {baseUrl}/dashboard
-        res.status(200).redirect("/dashboard");
+        res.status(200).redirect("/cars");
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -81,7 +81,7 @@ async function createCarData(req, res) {
         req.flash("success", "Data mobil berhasil ditambahkan !");
 
         // Redirect to {baseUrl}/dashboard
-        res.status(200).redirect("/dashboard");
+        res.status(200).redirect("/cars");
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -116,7 +116,7 @@ function updateCarData(req, res) {
     try {
         console.log(req.body);
         // Redirect to {baseUrl}/dashboard
-        res.status(200).redirect("/dashboard");
+        res.status(200).redirect("/cars");
     } catch (error) {
         console.error(error);
         res.status(500).json({

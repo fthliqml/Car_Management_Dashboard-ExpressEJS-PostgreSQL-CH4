@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
 });
 
 // Routing
-app.use("/dashboard", route);
+app.use("/cars", route);
 
 // Running server
 app.listen(port, () => {

@@ -8,12 +8,7 @@
     </nav>
     <h4 class="fw-bold"><%= contentTitle %></h4>
     <div class="bg-white p-4 w-100">
-        <form
-            enctype="multipart/form-data"
-            action="/dashboard/create-car"
-            method="post"
-            id="createCarForm"
-        >
+        <form enctype="multipart/form-data" action="/cars" method="post" id="createCarForm">
             <div class="d-flex flex-column gap-3">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-2">
@@ -79,7 +74,7 @@
     <div id="live-alert"></div>
     <!-- Button Group -->
     <div id="button-group" class="mt-auto">
-        <a href="/dashboard" class="btn btn-outline-primary">Cancel</a>
+        <a href="/cars" class="btn btn-outline-primary">Cancel</a>
         <input
             type="submit"
             value="Save"
