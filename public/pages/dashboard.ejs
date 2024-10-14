@@ -5,6 +5,18 @@
             <li class="breadcrumb-item" aria-current="page">List Cars</li>
         </ol>
     </nav>
+    <!-- Alert success -->
+    <% if (alert.successMsg.length) { %>
+    <div
+        class="alert alert-success alert-dismissible w-50 position-fixed"
+        role="alert"
+        id="success-alert"
+    >
+        <div><%= alert.successMsg[0] %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
     <div class="d-flex flex-wrap justify-content-between">
         <h4 class="fw-bold my-0 px-1"><%= contentTitle %></h4>
         <button class="btn btn-primary" id="btnAddCar">Add New Car</button>

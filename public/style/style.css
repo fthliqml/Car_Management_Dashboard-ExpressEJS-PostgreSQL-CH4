@@ -45,6 +45,11 @@
     background-color: #0d28a6;
 }
 
+#success-alert {
+    top: 10%;
+    left: 30%;
+}
+
 @media only screen and (max-width: 576px) {
     #sidebar-label {
         visibility: hidden;

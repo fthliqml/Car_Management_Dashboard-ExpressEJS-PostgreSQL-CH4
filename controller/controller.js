@@ -4,6 +4,8 @@ async function showAllCars(req, res) {
     try {
         // Get all cars data in array from database
         const carsData = await Car.findAll();
+        // Get information message if flash success in array
+        const successMsg = req.flash("success");
 
         // Rendering file with template engines (ejs)
         res.render("pages/dashboard", {
@@ -11,6 +13,9 @@ async function showAllCars(req, res) {
             scriptFile: "dashboard.js",
             layout: "layouts/main-layout",
             carsData,
+            alert: {
+                successMsg,
+            },
         });
     } catch (error) {
         console.error(error);
@@ -71,6 +76,9 @@ async function createCarData(req, res) {
             createdAt,
             updatedAt,
         });
+
+        // Store information temporary
+        req.flash("success", "Data mobil berhasil ditambahkan !");
 
         // Redirect to {baseUrl}/dashboard
         res.status(200).redirect("/dashboard");

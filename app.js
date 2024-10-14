@@ -1,7 +1,9 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const flash = require("connect-flash");
 const path = require("path");
 const route = require("./routes/routes");
+const session = require("./middlewares/session");
 
 const app = express();
 const port = 3000;
@@ -20,6 +22,8 @@ app.use(
         extended: true,
     })
 );
+app.use(session);
+app.use(flash());
 
 // Health check
 app.get("/", (req, res) => {

@@ -10,10 +10,12 @@
     "author": "M. Fatihul Iqmal",
     "license": "ISC",
     "dependencies": {
+        "connect-flash": "^0.1.1",
         "dotenv": "^16.4.5",
         "ejs": "^3.1.10",
         "express": "^4.21.1",
         "express-ejs-layouts": "^2.5.1",
+        "express-session": "^1.18.1",
         "imagekit": "^5.2.0",
         "multer": "^1.4.5-lts.1",
         "pg": "^8.13.0",

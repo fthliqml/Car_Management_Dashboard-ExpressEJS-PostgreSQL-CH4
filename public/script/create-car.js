@@ -17,7 +17,7 @@ const appendAlert = (message, type) => {
     setTimeout(() => {
         wrapper.classList.add("hidden");
 
-        // Wait animation to end (1s), then delete alert element
+        // Wait transition to end (1s), then delete alert element
         setTimeout(() => {
             wrapper.remove();
         }, 1000);
