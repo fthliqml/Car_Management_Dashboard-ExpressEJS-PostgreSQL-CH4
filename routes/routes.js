@@ -13,8 +13,8 @@ router.post("/", fileFilter.single("image"), serverUpload, createCarTime, contro
 router.patch("/", fileFilter.single("image"), serverUpload, controller.updateCarData);
 
 // Show pages create car form
-router.get("/add", controller.createForm);
+router.get("/add", controller.createPage);
 // Show pages update car form
-router.get("/:id/edit", controller.updateForm);
+router.get("/:id/edit", controller.updatePage);
 
 module.exports = router;

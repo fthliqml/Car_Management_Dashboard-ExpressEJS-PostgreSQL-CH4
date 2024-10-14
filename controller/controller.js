@@ -49,7 +49,7 @@ function deleteCar(req, res) {
     }
 }
 
-function createForm(req, res) {
+function createPage(req, res) {
     const car = {
         name: "",
         rentPerDay: "",
@@ -58,7 +58,7 @@ function createForm(req, res) {
     };
     try {
         // Rendering file with template engines (ejs)
-        res.render("pages/create-car", {
+        res.render("pages/form", {
             contentTitle: "Add New Car",
             scriptFile: "create-car.js",
             layout: "layouts/main-layout",
@@ -107,7 +107,7 @@ async function createCarData(req, res) {
     }
 }
 
-async function updateForm(req, res) {
+async function updatePage(req, res) {
     try {
         const id = req.params.id;
 
@@ -118,7 +118,7 @@ async function updateForm(req, res) {
         const car = await Car.findByPk(id);
 
         // Rendering file with template engines (ejs)
-        res.render("pages/update-car", {
+        res.render("pages/form", {
             contentTitle: "Update Car Information",
             scriptFile: "update-car.js",
             layout: "layouts/main-layout",
@@ -177,9 +177,9 @@ async function updateCarData(req, res) {
 
 module.exports = {
     showAllCars,
-    createForm,
+    createPage,
     createCarData,
-    updateForm,
+    updatePage,
     updateCarData,
     deleteCar,
 };

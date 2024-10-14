@@ -56,13 +56,17 @@ const currValue = {
 };
 
 inputName.addEventListener("input", () => {
-    inputName.value == currValue.name
-        ? (submitForm.disabled = true)
-        : (submitForm.disabled = false);
+    if (inputName.value == currValue.name && inputRent.value == currValue.rent) {
+        submitForm.disabled = true;
+    } else {
+        submitForm.disabled = false;
+    }
 });
 
-inputName.addEventListener("input", () => {
-    inputRent.value == currValue.rent
-        ? (submitForm.disabled = true)
-        : (submitForm.disabled = false);
+inputRent.addEventListener("input", () => {
+    if (inputName.value == currValue.name && inputRent.value == currValue.rent) {
+        submitForm.disabled = true;
+    } else {
+        submitForm.disabled = false;
+    }
 });
