@@ -45,11 +45,14 @@ async function showAllCars(req, res) {
     }
 }
 
-async function deleteCarData(req, res) {
+async function deleteCarData(req, res, next) {
     try {
         const { id } = req.body;
         // Find car in database
         const car = await Car.findByPk(id);
+
+        // Sending to next middleware
+        res.locals.fileId = car.fileId;
 
         // Removed data from database
         await car.destroy();
@@ -57,8 +60,8 @@ async function deleteCarData(req, res) {
         // Sending message for alert purpose
         req.flash("delete", "Data mobil berhasil dihapus !");
 
-        // Send no content, response of fetch in update-car.js will reload the page
-        res.status(200).send();
+        // Go to next middleware
+        next();
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -100,7 +103,7 @@ function createPage(req, res) {
 
 async function createCarData(req, res) {
     try {
-        const { name, rentPerDay, size, image, createdAt, updatedAt } = req.body;
+        const { name, rentPerDay, size, image, fileId, createdAt, updatedAt } = req.body;
 
         // Insert car data into database
         await Car.create({
@@ -108,6 +111,7 @@ async function createCarData(req, res) {
             rentPerDay,
             size,
             image,
+            fileId,
             createdAt,
             updatedAt,
         });

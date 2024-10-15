@@ -19,6 +19,7 @@ const serverUpload = async (req, res, next) => {
         if (uploadedImage) {
             // Create object image url in req.body
             req.body.image = uploadedImage.url;
+            req.body.fileId = uploadedImage.fileId;
             next();
 
             /*

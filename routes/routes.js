@@ -4,6 +4,7 @@ const controller = require("../controller/controller.js");
 const createCarTime = require("../middlewares/timestamps.js");
 const fileFilter = require("../middlewares/fileFilter.js");
 const serverUpload = require("../middlewares/uploader");
+const serverDelete = require("../middlewares/deleter");
 
 // Show dashboard
 router.get("/", controller.showAllCars);
@@ -12,7 +13,7 @@ router.post("/", fileFilter.single("image"), serverUpload, createCarTime, contro
 // Handling update car data
 router.patch("/", fileFilter.single("image"), serverUpload, controller.updateCarData);
 // Handling delete car data
-router.delete("/", controller.deleteCarData);
+router.delete("/", controller.deleteCarData, serverDelete);
 
 // Show pages create car form
 router.get("/add", controller.createPage);
