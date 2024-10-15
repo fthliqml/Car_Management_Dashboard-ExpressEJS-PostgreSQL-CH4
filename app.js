@@ -17,6 +17,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/public"));
 // Using ejs layouting
 app.use(expressLayouts);
+// Reading json request from client
+app.use(express.json());
 // Get request object (in this case, form in createCar)
 app.use(
     express.urlencoded({

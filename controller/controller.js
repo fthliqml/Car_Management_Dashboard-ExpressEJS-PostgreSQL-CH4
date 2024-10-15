@@ -9,8 +9,19 @@ async function showAllCars(req, res) {
         const carsData = await Car.findAll({
             order: [["updatedAt", "DESC"]],
         });
-        // Get information message if flash success in array
-        const successMsg = req.flash("success");
+
+        // Get information message if there is flash sending in request
+        let type;
+        let message = null;
+        const deleteMsg = req.flash("delete");
+        const updateMsg = req.flash("update");
+
+        if (deleteMsg.length !== 0 || updateMsg.length !== 0) {
+            // if delete message is empty, then type = success
+            type = deleteMsg.length === 0 ? "success" : "danger";
+            // if delete message is empty, then message = updateMsg
+            message = deleteMsg.length === 0 ? updateMsg : deleteMsg;
+        }
 
         // Rendering file with template engines (ejs)
         res.render("pages/dashboard", {
@@ -19,7 +30,8 @@ async function showAllCars(req, res) {
             layout: "layouts/main-layout",
             carsData,
             alert: {
-                successMsg,
+                type,
+                message,
             },
         });
     } catch (error) {
@@ -33,11 +45,20 @@ async function showAllCars(req, res) {
     }
 }
 
-function deleteCar(req, res) {
+async function deleteCarData(req, res) {
     try {
-        console.log(req.body);
-        // Redirect to {baseUrl}/cars
-        res.status(200).redirect("/cars");
+        const { id } = req.body;
+        // Find car in database
+        const car = await Car.findByPk(id);
+
+        // Removed data from database
+        await car.destroy();
+
+        // Sending message for alert purpose
+        req.flash("delete", "Data mobil berhasil dihapus !");
+
+        // Send no content, response of fetch in update-car.js will reload the page
+        res.status(200).send();
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -92,7 +113,7 @@ async function createCarData(req, res) {
         });
 
         // Store information temporary
-        req.flash("success", "Data mobil berhasil ditambahkan !");
+        req.flash("update", "Data mobil berhasil ditambahkan !");
 
         // Redirect to {baseUrl}/cars
         res.status(200).redirect("/cars");
@@ -156,7 +177,7 @@ async function updateCarData(req, res) {
         // Check if data is changing
         if (currentCar.changed()) {
             // Store information temporary
-            req.flash("success", "Data mobil berhasil diubah !");
+            req.flash("update", "Data mobil berhasil diubah !");
         }
 
         // Saving update to database, automatically check if car's data has changed or not
@@ -181,5 +202,5 @@ module.exports = {
     createCarData,
     updatePage,
     updateCarData,
-    deleteCar,
+    deleteCarData,
 };

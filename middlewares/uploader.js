@@ -17,12 +17,12 @@ const serverUpload = async (req, res, next) => {
         });
 
         if (uploadedImage) {
-            // Create object carImage in req.body
+            // Create object image url in req.body
             req.body.image = uploadedImage.url;
             next();
 
             /*
-            // Bring uploadedImage's data in response
+            // Bring uploadedImage's data in response (just in 1 request)
             res.locals.uploadedImage = uploadedImage;
             */
         } else {

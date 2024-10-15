@@ -6,13 +6,13 @@
         </ol>
     </nav>
     <!-- Alert success -->
-    <% if (alert.successMsg.length) { %>
+    <% if (alert.message != null) { %>
     <div
-        class="alert alert-success alert-dismissible w-50 position-fixed z-3"
+        class="alert alert-<%= alert.type %> alert-dismissible w-50 position-fixed z-3"
         role="alert"
-        id="success-alert"
+        id="live-alert"
     >
-        <div><%= alert.successMsg[0] %></div>
+        <div><%= alert.message[0] %></div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <% } %>
@@ -49,12 +49,45 @@
                         Updated at <%= car.updatedAt.toLocaleString('id-ID') %>
                     </p>
                     <div class="d-flex justify-content-center gap-5">
-                        <a href="#" class="btn btn-outline-danger w-50">Delete</a>
+                        <button
+                            class="btn btn-outline-danger w-50 delete-button"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                            data-id="<%= car.id %>"
+                        >
+                            Delete
+                        </button>
                         <a href="cars/<%= car.id %>/edit" class="btn btn-success w-50">Edit</a>
                     </div>
                 </div>
             </div>
         </div>
         <% }) %>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-6 mx-auto">
+                    <img src="/assets/img-modal.png" alt="img" class="img-fluid" />
+                </div>
+                <div class="text-center mx-3 mx-sm-5">
+                    <h2>Menghapus Data Mobil</h2>
+                    <p>
+                        Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-primary w-25" id="modalSave" type="button">Ya</button>
+                <button type="button" class="btn btn-outline-primary w-25" data-bs-dismiss="modal">
+                    Tidak
+                </button>
+            </div>
+        </div>
     </div>
 </div>

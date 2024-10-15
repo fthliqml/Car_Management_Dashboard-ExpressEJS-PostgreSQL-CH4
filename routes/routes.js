@@ -11,6 +11,8 @@ router.get("/", controller.showAllCars);
 router.post("/", fileFilter.single("image"), serverUpload, createCarTime, controller.createCarData);
 // Handling update car data
 router.patch("/", fileFilter.single("image"), serverUpload, controller.updateCarData);
+// Handling delete car data
+router.delete("/", controller.deleteCarData);
 
 // Show pages create car form
 router.get("/add", controller.createPage);
