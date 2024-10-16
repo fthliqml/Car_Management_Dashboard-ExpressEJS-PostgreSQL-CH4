@@ -28,6 +28,17 @@
     background: #f4f5f7;
 }
 
+input::placeholder {
+    font-weight: 300;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+    font-size: 16px;
+    /* margin-left: 5px; */
+}
+
 .btnActive {
     background-color: #cfd4ed;
     width: 100%;

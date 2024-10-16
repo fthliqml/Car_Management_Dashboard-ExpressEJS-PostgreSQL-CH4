@@ -12,7 +12,7 @@
             <div class="d-flex flex-column gap-3">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-2">
-                        <label for="inputName" class="col-form-label fw-medium">Nama</label>
+                        <label for="inputName" class="col-form-label fw-medium required">Nama</label>
                     </div>
                     <div class="col-12 col-md-5">
                         <input
@@ -20,7 +20,7 @@
                             id="inputName"
                             name="name"
                             class="form-control"
-                            placeholder="Avanza"
+                            placeholder="Mercedes-Benz C-Class"
                             value="<%= car.name %>"
                             required
                         />
@@ -28,7 +28,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-12 col-md-2">
-                        <label for="inputRent" class="col-form-label fw-medium"
+                        <label for="inputRent" class="col-form-label fw-medium required"
                             >Sewa Per hari</label
                         >
                     </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-12 col-md-2">
-                        <label for="inputSize" class="col-form-label fw-medium">Ukuran</label>
+                        <label for="inputSize" class="col-form-label fw-medium required">Ukuran</label>
                     </div>
                     <div class="col-12 col-md-5">
                         <select name="size" class="form-select" id="inputSize">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-12 col-md-2">
-                        <label for="inputImage" class="col-form-label fw-medium">Foto</label>
+                        <label for="inputImage" class="col-form-label fw-medium <%= !isUpdate? "required" : "" %>">Foto</label>
                     </div>
                     <div class="col-12 col-md-5">
                         <input

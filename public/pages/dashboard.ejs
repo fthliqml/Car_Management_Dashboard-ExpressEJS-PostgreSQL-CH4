@@ -19,7 +19,10 @@
 
     <div class="d-flex flex-wrap justify-content-between">
         <h4 class="fw-bold my-0 px-1"><%= contentTitle %></h4>
-        <button class="btn btn-primary" id="btnAddCar">Add New Car</button>
+        <button class="btn btn-primary pe-3" id="btnAddCar">
+            <img src="/assets/fi_plus.png" alt="add-logo" width="20px" class="pb-1 me-1" />
+            Add New Car
+        </button>
     </div>
     <div class="d-flex gap-3 mb-3 flex-wrap">
         <a class="btn btn-outline-primary" href="/cars">All</a>
@@ -45,9 +48,17 @@
                     <h5 class="card-title fw-bold">
                         Rp. <%= car.rentPerDay.toLocaleString('id-ID') %> / day
                     </h5>
-                    <p class="card-text fw-light">
-                        Updated at <%= car.updatedAt.toLocaleString('id-ID') %>
-                    </p>
+                    <div class="d-flex mb-4 mt-3">
+                        <img
+                            src="/assets/fi_clock.png"
+                            alt="update-logo"
+                            width="20px"
+                            class="pt-1"
+                        />
+                        <p class="card-text fw-light ms-2">
+                            Updated at <%= car.updatedAt.toLocaleString('id-ID') %>
+                        </p>
+                    </div>
                     <div class="d-flex justify-content-center gap-5">
                         <button
                             class="btn btn-outline-danger w-50 delete-button"
@@ -56,9 +67,23 @@
                             data-bs-target="#deleteModal"
                             data-id="<%= car.id %>"
                         >
+                            <img
+                                src="/assets/fi_delete.png"
+                                alt="delete-logo"
+                                width="20px"
+                                class="pb-1 me-1"
+                            />
                             Delete
                         </button>
-                        <a href="cars/<%= car.id %>/edit" class="btn btn-success w-50">Edit</a>
+                        <a href="cars/<%= car.id %>/edit" class="btn btn-success w-50">
+                            <img
+                                src="/assets/fi_edit.png"
+                                alt="edit-logo"
+                                width="20px"
+                                class="pb-1 me-1"
+                            />
+                            Edit
+                        </a>
                     </div>
                 </div>
             </div>
