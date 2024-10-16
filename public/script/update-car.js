@@ -46,6 +46,7 @@ inputImage.addEventListener("change", function (event) {
 
 const inputName = document.getElementById("inputName");
 const inputRent = document.getElementById("inputRent");
+const inputSize = document.getElementById("inputSize");
 const submitForm = document.getElementById("submitForm");
 
 submitForm.disabled = true;
@@ -53,20 +54,17 @@ submitForm.disabled = true;
 const currValue = {
     name: inputName.value,
     rent: inputRent.value,
+    size: inputSize.value,
 };
 
-inputName.addEventListener("input", () => {
-    if (inputName.value == currValue.name && inputRent.value == currValue.rent) {
-        submitForm.disabled = true;
-    } else {
-        submitForm.disabled = false;
-    }
-});
+const checkFormChanged = () => {
+    // Check if all condition are fullfilled, then value = true
+    submitForm.disabled =
+        inputName.value === currValue.name &&
+        inputRent.value === currValue.rent &&
+        inputSize.value === currValue.size;
+};
 
-inputRent.addEventListener("input", () => {
-    if (inputName.value == currValue.name && inputRent.value == currValue.rent) {
-        submitForm.disabled = true;
-    } else {
-        submitForm.disabled = false;
-    }
-});
+inputName.addEventListener("input", checkFormChanged);
+inputRent.addEventListener("input", checkFormChanged);
+inputSize.addEventListener("change", checkFormChanged);
