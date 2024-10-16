@@ -5,10 +5,13 @@ async function showAllCars(req, res) {
         // Delete unused session data (used when updating car data)
         delete req.session.carId;
 
+        // Get client query
+        const sortBySize = req.query.size;
+
         // Get all cars data in array from database
-        const carsData = await Car.findAll({
-            order: [["updatedAt", "DESC"]],
-        });
+        const carsData = sortBySize
+            ? await Car.findAll({ where: { size: sortBySize }, order: [["updatedAt", "DESC"]] })
+            : await Car.findAll({ order: [["updatedAt", "DESC"]] });
 
         // Get information message if there is flash sending in request
         let type;
