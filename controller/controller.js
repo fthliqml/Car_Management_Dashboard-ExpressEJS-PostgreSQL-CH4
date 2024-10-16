@@ -6,11 +6,11 @@ async function showAllCars(req, res) {
         delete req.session.carId;
 
         // Get client query
-        const sortBySize = req.query.size;
+        const querySize = req.query.size;
 
         // Get all cars data in array from database
-        const carsData = sortBySize
-            ? await Car.findAll({ where: { size: sortBySize }, order: [["updatedAt", "DESC"]] })
+        const carsData = querySize
+            ? await Car.findAll({ where: { size: querySize }, order: [["updatedAt", "DESC"]] })
             : await Car.findAll({ order: [["updatedAt", "DESC"]] });
 
         // Get information message if there is flash sending in request
@@ -26,12 +26,15 @@ async function showAllCars(req, res) {
             message = deleteMsg.length === 0 ? updateMsg : deleteMsg;
         }
 
+        const sortBy = querySize ? querySize : "All";
+
         // Rendering file with template engines (ejs)
         res.render("pages/dashboard", {
             contentTitle: "List Cars",
             scriptFile: "dashboard.js",
             layout: "layouts/main-layout",
             carsData,
+            sortBy,
             alert: {
                 type,
                 message,

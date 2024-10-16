@@ -28,6 +28,14 @@
     background: #f4f5f7;
 }
 
+.active {
+    background-color: #0d28a6 !important;
+}
+
+.active:hover {
+    background-color: #3554df !important;
+}
+
 input::placeholder {
     font-weight: 300;
 }
