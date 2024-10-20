@@ -13,17 +13,17 @@ const port = 3000;
 app.use(express.static(__dirname + "/public"));
 // Set the view engine to ejs
 app.set("view engine", "ejs");
-// Custom "views" folder path
-app.set("views", path.join(__dirname, "/public"));
+// Custom "views" folder path (express-layouts automatically set this views by default)
+app.set("views", path.join(__dirname, "/views"));
 // Using ejs layouting
 app.use(expressLayouts);
 // Reading json request from client
 app.use(express.json());
 // Get request object (in this case, form in createCar)
 app.use(
-    express.urlencoded({
-        extended: true,
-    })
+  express.urlencoded({
+    extended: true,
+  })
 );
 // Override method in form
 app.use(methodOverride("_method"));
@@ -34,20 +34,20 @@ app.use(flash());
 
 // Health check
 app.get("/", (req, res) => {
-    try {
-        res.status(200).json({
-            status: "Success",
-            message: "Ping successfully",
-            isSuccess: true,
-        });
-    } catch (error) {
-        res.status(500).json({
-            status: "Failed",
-            message: "Ping failed",
-            isSuccess: false,
-            error: error.message,
-        });
-    }
+  try {
+    res.status(200).json({
+      status: "Success",
+      message: "Ping successfully",
+      isSuccess: true,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "Failed",
+      message: "Ping failed",
+      isSuccess: false,
+      error: error.message,
+    });
+  }
 });
 
 // Routing
@@ -55,5 +55,5 @@ app.use("/cars", route);
 
 // Running server
 app.listen(port, () => {
-    console.log(`App running on http://localhost:${port}`);
+  console.log(`App running on http://localhost:${port}`);
 });
